@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { assets } from "./../../assets/assets";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
-const MENUNAV = ["Home", "Menu", "Mobile", "Contact"];
+const MENUNAV = ["Home"];
 
 function Navbar({ setShowLogin }) {
   const [menu, setMenu] = useState("Home");
@@ -10,7 +10,7 @@ function Navbar({ setShowLogin }) {
   return (
     <>
       <div className="p-5 flex justify-between items-center">
-        <img src={assets.logo} alt="" className="w-[150px]" />
+        <Link to="/home"> <img src={assets.logo} alt="" className="w-[150px]" /></Link>
         <ul className="flex gap-5 text-textColor text-lg">
           {MENUNAV.map((menuNav) => {
             return (
@@ -18,7 +18,7 @@ function Navbar({ setShowLogin }) {
                 to={menuNav.toLowerCase()}
                 key={menuNav}
                 className={clsx("cursor-pointer", {
-                  "pb-[2px] border-b-2": menu === menuNav,
+                  "pb-[2px] border-b-2 text-tomato border-tomato": menu === menuNav,
                 })}
                 onClick={() => setMenu(menuNav)}
               >

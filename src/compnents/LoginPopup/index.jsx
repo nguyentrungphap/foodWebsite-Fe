@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { assets } from "../../assets/assets";
 function LoginPopup({ setShowLogin }) {
-  const [currState, setCurrState] = useState("Sign Up");
+  const [currState, setCurrState] = useState("SING UP");
   return (
     <div className="absolute z-10 w-full h-full bg-[#00000090]">
       <div className=" relative w-full h-full">
@@ -18,7 +18,7 @@ function LoginPopup({ setShowLogin }) {
             />
           </div>
           <div className="flex flex-col gap-[20px]">
-            {currState === "Login" ? (
+            {currState === "LOGIN" ? (
               <></>
             ) : (
               <input
@@ -42,31 +42,35 @@ function LoginPopup({ setShowLogin }) {
             />
           </div>
           <button className="border-none p-[10px] rounded-[4px] text-white bg-tomato text-[15px] cursor-pointer">
-            {currState === "Sign Up" ? "Create account" : "Login"}
+            {currState === "SING UP" ? "Create account" : "Login  "}
           </button>
+       {
+        currState ==="SING UP" ?(
           <div className="flex items-start gap-[8px] mt-[-15px">
-            <input className="mt-[5px]" type="checkbox" required />
-            <p>By continuing, i aggre to the terms of use & privacy policy.</p>
-          </div>
-          {currState === "Login" ? (
+          <input className="mt-[5px]" type="checkbox" required />
+          <p>By continuing, i aggre to the terms of use & privacy policy.</p>
+        </div>
+        ):<></>
+       }
+          {currState === "LOGIN" ? (
             <p>
               Create a new account?{" "}
               <span
                 className="text-tomato font-medium cursor-pointer"
                 onClick={() => {
-                  setCurrState("Sign Up");
+                  setCurrState("SING UP");
                 }}
               >
-                CLick here
+                Click here
               </span>
             </p>
           ) : (
             <p>
-              Already have an account{" "}
+              Already have an account?{" "}
               <span
                 className="text-tomato font-medium cursor-pointer"
                 onClick={() => {
-                  setCurrState("Login");
+                  setCurrState("LOGIN");
                 }}
               >
                 Login here

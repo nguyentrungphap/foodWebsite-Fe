@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { StoreContext } from "./../../context/StoreContext";
-
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 function Cart() {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount } =
     useContext(StoreContext);
@@ -8,7 +8,7 @@ function Cart() {
   return (
     <div className="mt-[100px] ">
       <div>
-        <div className="grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] items-center text-gray-600 text-cart ">
+        <div className="grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] items-center text-gray-600 text-cart text-center ">
           <p>Items</p>
           <p>Title</p>
           <p>Price</p>
@@ -24,7 +24,7 @@ function Cart() {
               <div>
                 <div
                   key={item._id}
-                  className={`grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] items-center text-gray-600 text-cart my-[10px] text-black`}
+                  className={`grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] text-center items-center text-gray-600 text-cart my-[10px] text-black`}
                 >
                   <img src={item.image} alt="" />
                   <p>{item.name}</p>
@@ -33,9 +33,9 @@ function Cart() {
                   <p>{item.price * cartItems[item._id]}</p>
                   <p
                     onClick={() => removeFromCart(item._id)}
-                    className="cursor-pointer"
+                    className="cursor-pointer text-red-600"
                   >
-                    x
+                    <RemoveCircleIcon/>
                   </p>
                 </div>
                 <hr />
@@ -46,7 +46,7 @@ function Cart() {
       </div>
       <div className="my-[80px] flex justify-between text-[#555] gap-x-10">
         <div className="flex flex-1 flex-col gap-5">
-          <h2>Cart Totals</h2>
+          <h2 className="font-semibold text-lg">Cart Totals</h2>
           <div>
             <div className="flex justify-between text-[#555]">
               <p>Subtotal</p>

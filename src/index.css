@@ -13,6 +13,15 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.ExploreMenu {
+    overflow-x: scroll; /* or overflow: auto; */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar for webkit browsers */
+.ExploreMenu::-webkit-scrollbar {
+    display: none;
+}
 
 @tailwind base;
 @tailwind components;

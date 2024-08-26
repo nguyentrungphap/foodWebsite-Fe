@@ -10,11 +10,11 @@ export default function App() {
   return (
     <div className="relative">
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
+      <Navbar setShowLogin={setShowLogin} />
       <div className="w-4/5 m-auto">
-        <Navbar setShowLogin={setShowLogin} />
         <Outlet />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

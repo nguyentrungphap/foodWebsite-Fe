@@ -17,9 +17,9 @@ function Footer() {
             and scrambled it to make a type specimen book.
           </p>
           <div className="flex  gap-[20px]">
-            <img src={assets.facebook_icon} alt="" />
-            <img src={assets.twitter_icon} alt="" />
-            <img src={assets.linkedin_icon} alt="" />
+           <img src={assets.facebook_icon} alt="" className="cursor-pointer" />
+           <img src={assets.twitter_icon} alt=""  className="cursor-pointer"/>
+           <img src={assets.linkedin_icon} alt="" className="cursor-pointer" />
           </div>
         </div>
         <div className="flex flex-col items-start gap-[20px]">
