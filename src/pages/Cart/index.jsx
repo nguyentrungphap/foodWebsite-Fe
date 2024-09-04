@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { StoreContext } from "./../../context/StoreContext";
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 function Cart() {
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount } =
+  const { cartItems, removeFromCart, getTotalCartAmount } =
     useContext(StoreContext);
-  console.log(cartItems);
   return (
     <div className="mt-[100px] ">
       <div>
@@ -12,36 +11,34 @@ function Cart() {
           <p>Items</p>
           <p>Title</p>
           <p>Price</p>
-          <p>Quatity</p>
+          <p>Quantity</p>
           <p>Total</p>
           <p>Remove</p>
         </div>
         <br />
         <hr />
-        {food_list.map((item) => {
-          if (cartItems[item._id] > 0) {
-            return (
-              <div>
-                <div
-                  key={item._id}
-                  className={`grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] text-center items-center text-gray-600 text-cart my-[10px] text-black`}
+        {cartItems.map((item) => {
+          return (
+            <div key={item.id}>
+              <div
+                key={item.id}
+                className={`grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] text-center items-center text-gray-600 text-cart my-[10px] text-black`}
+              >
+                <img src={item.image} alt="" />
+                <p>{item.name}</p>
+                <p>${item.price}</p>
+                <p>{item.quantity}</p>
+                <p>{item.price * item.quantity}</p>
+                <p
+                  onClick={() => removeFromCart(item.id)}
+                  className="cursor-pointer text-red-600"
                 >
-                  <img src={item.image} alt="" />
-                  <p>{item.name}</p>
-                  <p>${item.price}</p>
-                  <p>{cartItems[item._id]}</p>
-                  <p>{item.price * cartItems[item._id]}</p>
-                  <p
-                    onClick={() => removeFromCart(item._id)}
-                    className="cursor-pointer text-red-600"
-                  >
-                    <RemoveCircleIcon/>
-                  </p>
-                </div>
-                <hr />
+                  <RemoveCircleIcon />
+                </p>
               </div>
-            );
-          }
+              <hr />
+            </div>
+          );
         })}
       </div>
       <div className="my-[80px] flex justify-between text-[#555] gap-x-10">
