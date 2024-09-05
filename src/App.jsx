@@ -8,7 +8,7 @@ export default function App() {
   const [showLogin, setShowLogin] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative w-full ">
       {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
       <Navbar setShowLogin={setShowLogin} />
       <div className="w-4/5 m-auto">

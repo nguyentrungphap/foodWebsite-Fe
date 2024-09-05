@@ -7,6 +7,7 @@ import Home from "./pages/Home/index.jsx";
 import Cart from "./pages/Cart/index.jsx";
 import PlaceOrder from "./pages/PlaceOrder/index.jsx";
 import StoreContextProvider from "./context/StoreContext.jsx";
+import Test from "./pages/Test/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/placeOrder",
         element: <PlaceOrder />,
+      },
+      {
+        path: "/test",
+        element: <Test />,
       },
     ],
   },

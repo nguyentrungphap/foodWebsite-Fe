@@ -6,7 +6,6 @@ function FoodItem({ id, name, price, description, image }) {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
   const hasAlreadyAddToCart = cartItems.find((cartItem) => cartItem.id === id);
   const quantity = hasAlreadyAddToCart ? hasAlreadyAddToCart.quantity : "";
-  console.log(cartItems.find((cartItem) => cartItem.id === id));
 
   return (
     <div className="flex flex-1 flex-col justify-between items-center border border-gray-300 rounded-lg p-4 m-2 shadow-md transform transition-transform duration-300 hover:scale-105">
@@ -32,7 +31,7 @@ function FoodItem({ id, name, price, description, image }) {
         </div>
       </div>
       <div className="p-[20px]">
-        <div className="flex justify-between items-center mb-[10px]">
+        <div className="flex mb-[10px] flex-col items-start">
           <p className="text-[20px] font-medium">{name}</p>
           <img className="w-[70px]" src={assets.rating_starts} alt="" />
         </div>

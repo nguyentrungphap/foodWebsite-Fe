@@ -4,7 +4,10 @@ function Header() {
   return (
     <div
       className="h-[33vw] my-30px mx-auto relative"
-      style={{ background: `url("./header_img.png")` }}
+      style={{
+        backgroundImage: `url("./header_img.png")`,
+        backgroundSize: "cover",
+      }}
     >
       <div className="absolute flex flex-col items-start gap-[1.5vw] max-w-[50%] bottom-[10%] left-[6vw] animate-fadeIn">
         <h2 className=" font-medium text-white text-[4.5vw]">

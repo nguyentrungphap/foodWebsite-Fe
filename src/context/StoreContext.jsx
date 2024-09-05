@@ -3,7 +3,10 @@ import { food_list } from "../assets/assets";
 
 export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem("Cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
   const addToCart = (itemId) => {
     // tim food item trong food list de lam show ra cart UI
@@ -37,14 +40,12 @@ const StoreContextProvider = (props) => {
         // else return cartItem
         // return lại cartItem
         return cartItem;
-        
       });
       //set lại cartItems
       setCartItems(newCartItems);
       // localStorage.setItem("Cart",JSON.stringify(cartItems))
-
     }
-  }
+  };
   const removeFromCart = (itemId) => {
     // Tạo 1 biến có giá trị bằng vị trí có id bằng id truyền vào
     const cartItem = cartItems.find((cartItem) => cartItem.id === itemId);
@@ -76,13 +77,15 @@ const StoreContextProvider = (props) => {
       }
     }
   };
-  useEffect
-  localStorage.setItem("Cart",JSON.stringify(cartItems))
+  useEffect(() => {
+    localStorage.setItem("Cart", JSON.stringify(cartItems));
+  }, [cartItems]);
+
   const getTotalCartAmount = () => {
     const totalCart = cartItems.reduce((total, item, index, array) => {
       if (index < array.length) {
-        total += item.price + item.quantity;
-        return total
+        total += item.price * item.quantity;
+        return total;
       } else return total;
     }, 0);
     return totalCart;
